@@ -44,7 +44,7 @@ func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	oidcConfig := &oidc.Config{
-		ClientID: os.Getenv("AUTH0_CLIENT_ID"),
+		ClientID: os.Getenv("AUTH0_CLIENT_ID_CI_1_1"),
 	}
 
 	idToken, err := authenticator.Provider.Verifier(oidcConfig).Verify(context.TODO(), rawIDToken)

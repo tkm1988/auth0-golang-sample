@@ -19,17 +19,17 @@ type Authenticator struct {
 func NewAuthenticator() (*Authenticator, error) {
 	ctx := context.Background()
 
-	provider, err := oidc.NewProvider(ctx, "https://" + os.Getenv("AUTH0_DOMAIN") + "/")
+	provider, err := oidc.NewProvider(ctx, "https://"+os.Getenv("AUTH0_DOMAIN")+"/")
 	if err != nil {
 		log.Printf("failed to get provider: %v", err)
 		return nil, err
 	}
 
 	conf := oauth2.Config{
-		ClientID:     os.Getenv("AUTH0_CLIENT_ID"),
-		ClientSecret: os.Getenv("AUTH0_CLIENT_SECRET"),
+		ClientID:     os.Getenv("AUTH0_CLIENT_ID_CI_1_1"),
+		ClientSecret: os.Getenv("AUTH0_CLIENT_SECRET_CI_1_1"),
 		RedirectURL:  os.Getenv("AUTH0_CALLBACK_URL"),
-		Endpoint: 	  provider.Endpoint(),
+		Endpoint:     provider.Endpoint(),
 		Scopes:       []string{oidc.ScopeOpenID, "profile"},
 	}
 
