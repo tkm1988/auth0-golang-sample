@@ -1,1 +1,1 @@
-web: bin/ci-1-1-study
+web: bin/auth0-golang-sample
