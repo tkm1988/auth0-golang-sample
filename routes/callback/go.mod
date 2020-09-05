@@ -1,4 +1,4 @@
-module 01-Login/routes/callback
+module auth0-golang-sample/routes/callback
 
 go 1.12
 

@@ -1,4 +1,4 @@
-module 01-Login/routes/home
+module auth0-golang-sample/routes/home
 
 go 1.12
 

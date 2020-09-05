@@ -1,4 +1,4 @@
-module 01-Login/app
+module auth0-golang-sample/app
 
 go 1.12
 

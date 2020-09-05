@@ -1,3 +1,3 @@
-module 01-Login/routes/logout
+module auth0-golang-sample/routes/logout
 
 go 1.12

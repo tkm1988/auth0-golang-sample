@@ -1,4 +1,4 @@
-module 01-Login/routes/middlewares
+module auth0-golang-sample/routes/middlewares
 
 go 1.12
 
