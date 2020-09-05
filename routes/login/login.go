@@ -22,6 +22,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	state := base64.StdEncoding.EncodeToString(b)
+	log.Printf("Generated random state: %s", state)
 
 	session, err := app.Store.Get(r, "auth-session")
 	if err != nil {
@@ -36,6 +37,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	log.Print("Got Session")
 
 	authenticator, err := auth.NewAuthenticator()
 	if err != nil {
@@ -43,7 +45,8 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	log.Print("Got Authenticator")
 
-	log.Printf("Redirect %s", state)
+	log.Printf("Redirect %s", authenticator.Config.AuthCodeURL(state))
 	http.Redirect(w, r, authenticator.Config.AuthCodeURL(state), http.StatusTemporaryRedirect)
 }
