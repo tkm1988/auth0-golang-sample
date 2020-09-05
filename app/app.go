@@ -4,8 +4,8 @@ import (
 	"encoding/gob"
 	"log"
 
-	"github.com/joho/godotenv"
 	"github.com/gorilla/sessions"
+	"github.com/joho/godotenv"
 )
 
 var (
@@ -15,6 +15,7 @@ var (
 func Init() error {
 	err := godotenv.Load()
 	if err != nil {
+		log.Print("Load .env Error")
 		log.Print(err.Error())
 		return err
 	}
