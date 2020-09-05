@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
@@ -28,6 +30,7 @@ func StartServer() {
 	))
 	r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("public/"))))
 	http.Handle("/", r)
+	http.ListenAndServe(fmt.Sprintf(":%s", os.Getenv("PORT")), nil)
 	log.Print("Server listening on http://ci-1-1-study.herokuapp.com/")
 	log.Fatal(http.ListenAndServe("0.0.0.0:3000", nil))
 }
