@@ -1,1 +1,1 @@
-web: ci-1-1-study
+web: bin/ci-1-1-study
